@@ -1,0 +1,13 @@
+package br.com.caelum.gerenciador.servlet;
+
+import java.net.http.HttpRequest;
+
+import javax.servlet.http.HttpServlet;
+
+public class OlaMundo extends HttpServlet {
+	@Override
+	private void serivce(HttpRequest req, HttpResponse, res) {
+		// TODO Auto-generated method stub
+
+	}
+}

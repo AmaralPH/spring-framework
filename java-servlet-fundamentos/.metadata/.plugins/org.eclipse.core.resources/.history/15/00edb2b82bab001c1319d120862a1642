@@ -1,0 +1,15 @@
+package br.com.caelum.gerenciador.servlet;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet(urlPatterns="/oi")
+public class OlaMundo extends HttpServlet {
+	@Override
+	protected void serivce(HttpServletRequest req, HttpServletResponse resp) {
+
+		
+	}
+}

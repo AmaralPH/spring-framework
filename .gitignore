@@ -78,6 +78,7 @@ local.properties
 .classpath
 .settings/
 .loadpath
+java-servlet-fundamentos/.metadata
 
 # External tool builders
 .externalToolBuilders/

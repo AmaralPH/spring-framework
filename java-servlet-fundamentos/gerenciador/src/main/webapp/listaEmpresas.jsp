@@ -10,10 +10,18 @@
 <title>Lista de Empresas</title>
 </head>
 <body>
-
+	<c:if test="${not empty empresa }">
+		Empresa ${empresa } foi adicionada com sucesso!
+	</c:if>
+	
+	<p>Lista de empresas:</p>
 	<ul>
 		<c:forEach items="${empresas }" var="empresa">
-			<li>${empresa.nome } - <fmt:formatDate value="${empresa.dataAbertura }" pattern="dd/MM/yyyy" /></li>
+			<li>
+				${empresa.nome } - <fmt:formatDate value="${empresa.dataAbertura }" pattern="dd/MM/yyyy" />
+				<a href="/gerenciador/mostraEmpresa?id=${empresa.id }">editar </a>
+				<a href="/gerenciador/removeEmpresa?id=${empresa.id }">remover </a>
+			</li>
 		</c:forEach>
 	</ul>
 

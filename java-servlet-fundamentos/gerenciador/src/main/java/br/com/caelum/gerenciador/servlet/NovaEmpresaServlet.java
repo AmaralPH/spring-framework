@@ -1,6 +1,9 @@
 package br.com.caelum.gerenciador.servlet;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,18 +22,37 @@ public class NovaEmpresaServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("Cadastrando nova empresa!");
-
+		
 		String nomeEmpresa = request.getParameter("nome");
+		String paramDataAbertura = request.getParameter("data");
+		Date dataAbertura = null;
+
+		try {
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+			dataAbertura = sdf.parse(paramDataAbertura);
+		} catch (ParseException e) {
+			throw new ServletException(e);
+		}
 		
 		Empresa empresa = new Empresa(nomeEmpresa);
+		empresa.setDataAbertura(dataAbertura);
 		
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
 		
 		request.setAttribute("empresa", empresa.getNome());
+		request.setAttribute("data", empresa.getDataAbertura());
 		
-		RequestDispatcher rd = request.getRequestDispatcher("novaEmpresaCriada.jsp");
-		rd.forward(request, response);
+		// pede ao cliente que chame o próximo Servlet
+		response.sendRedirect("listaEmpresas");
+		
+		// faz a requisição do próximo Servlet pelo servidor
+//		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas");
+//		rd.forward(request, response);
+
+		// chamar o JSP
+//		RequestDispatcher rd = request.getRequestDispatcher("novaEmpresaCriada.jsp");
+//		rd.forward(request, response);
 	}
 
 }

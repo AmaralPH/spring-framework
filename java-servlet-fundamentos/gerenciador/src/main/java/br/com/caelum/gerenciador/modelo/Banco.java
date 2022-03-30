@@ -1,4 +1,4 @@
-package br.com.caelum.gerenciador.servlet;
+package br.com.caelum.gerenciador.modelo;
 
 import java.util.ArrayList;
 import java.util.Date;

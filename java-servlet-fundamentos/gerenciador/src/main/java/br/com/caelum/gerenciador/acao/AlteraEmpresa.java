@@ -1,4 +1,4 @@
-package br.com.caelum.gerenciador.servlet;
+package br.com.caelum.gerenciador.acao;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -6,29 +6,23 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class EditaEmpresaServlet
- */
-@WebServlet("/editaEmpresa")
-public class EditaEmpresaServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+import br.com.caelum.gerenciador.modelo.Banco;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		System.out.println("Editando empresa!");
+public class AlteraEmpresa {
+
+	public void executa(HttpServletRequest request, HttpServletResponse response)
+		throws ServletException, IOException {
 		
 		String paramId = request.getParameter("id");
 		Integer id = Integer.parseInt(paramId);
-
+	
 		String nomeEmpresa = request.getParameter("nome");
 		String paramDataAbertura = request.getParameter("data");
 		Date dataAbertura = null;
-
+	
 		try {
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			dataAbertura = sdf.parse(paramDataAbertura);
@@ -36,10 +30,12 @@ public class EditaEmpresaServlet extends HttpServlet {
 			throw new ServletException(e);
 		}
 		
+		System.out.println("acao AlteraEmpresa " + id);
+		
 		Banco banco = new Banco();
 		banco.editaEmpresa(id, nomeEmpresa, dataAbertura);
 		
-		response.sendRedirect("listaEmpresas");
+		response.sendRedirect("entrada?acao=ListaEmpresas");
 	}
 
 }

@@ -12,7 +12,7 @@ import br.com.caelum.gerenciador.modelo.Empresa;
 
 public class MostraEmpresa {
 
-	public void executa(HttpServletRequest request, HttpServletResponse response)
+	public String executa(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 
 		String paramId = request.getParameter("id");
@@ -26,8 +26,9 @@ public class MostraEmpresa {
 		
 		request.setAttribute("empresa", empresa);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("formEditaEmpresa.jsp");
-		rd.forward(request, response);
+		return "forward:formEditaEmpresa.jsp";
+//		RequestDispatcher rd = request.getRequestDispatcher("formEditaEmpresa.jsp");
+//		rd.forward(request, response);
 	}
 
 }

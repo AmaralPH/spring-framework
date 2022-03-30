@@ -13,7 +13,7 @@ import br.com.caelum.gerenciador.modelo.Empresa;
 
 public class ListaEmpresas {
 
-	public void executa(HttpServletRequest request, HttpServletResponse response)
+	public String executa(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("Listando empresas");
 
@@ -22,7 +22,8 @@ public class ListaEmpresas {
 		
 		request.setAttribute("empresas", empresas);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("listaEmpresas.jsp");
-		rd.forward(request, response);
+		return "forward:listaEmpresas.jsp";
+//		RequestDispatcher rd = request.getRequestDispatcher("listaEmpresas.jsp");
+//		rd.forward(request, response);
 	}
 }

@@ -8,9 +8,9 @@
 </head>
 <body>
 	<form action="${linkEntradaServlet}" method="POST">
-		Nome: </br><input type="text" name="nome" /></br>
-		Data abertura: </br><input type="text" name="data" /></br>
-		<input type="hidden" name="acao" value="NovaEmpresa" />
+		Login: </br><input type="text" name="login" /></br>
+		Senha: </br><input type="password" name="senha" /></br>
+		<input type="hidden" name="acao" value="Login" />
 		<input type="submit" />
 	</form>
 </body>

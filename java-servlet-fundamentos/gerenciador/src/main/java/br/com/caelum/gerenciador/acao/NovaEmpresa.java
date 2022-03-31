@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.caelum.gerenciador.modelo.Banco;
 import br.com.caelum.gerenciador.modelo.Empresa;
 
-public class NovaEmpresa {
+public class NovaEmpresa implements Acao {
 
-	public void executa(HttpServletRequest request, HttpServletResponse response)
+	public String executa(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 		
 		String nomeEmpresa = request.getParameter("nome");
@@ -39,7 +39,8 @@ public class NovaEmpresa {
 		request.setAttribute("empresa", empresa.getNome());
 		request.setAttribute("data", empresa.getDataAbertura());
 		
-		response.sendRedirect("entrada?acao=ListaEmpresas");
+		return "redirect:entrada?acao=ListaEmpresas";
+//		response.sendRedirect("entrada?acao=ListaEmpresas");
 	}
 
 }

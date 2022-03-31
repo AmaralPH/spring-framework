@@ -24,6 +24,10 @@
 			</li>
 		</c:forEach>
 	</ul>
+	
+	<button>
+		<a href="/gerenciador/entrada?acao=NovaEmpresaForm">Nova empresa</a>
+	</button>
 
 </body>
 </html>

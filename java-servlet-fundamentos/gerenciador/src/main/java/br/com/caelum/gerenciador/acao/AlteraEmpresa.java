@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.caelum.gerenciador.modelo.Banco;
 
-public class AlteraEmpresa {
+public class AlteraEmpresa implements Acao {
 
-	public void executa(HttpServletRequest request, HttpServletResponse response)
+	public String executa(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 		
 		String paramId = request.getParameter("id");
@@ -35,7 +35,8 @@ public class AlteraEmpresa {
 		Banco banco = new Banco();
 		banco.editaEmpresa(id, nomeEmpresa, dataAbertura);
 		
-		response.sendRedirect("entrada?acao=ListaEmpresas");
+		return "redirect:entrada?acao=ListaEmpresas";
+//		response.sendRedirect("entrada?acao=ListaEmpresas");
 	}
 
 }

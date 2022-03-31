@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<c:import url="logout-parcial.jsp" />
+
 	<form action="${linkParaEditaEmpresa}" method="POST">
 		Nome: </br><input type="text" name="nome" value="${empresa.nome }" /></br>
 		Data abertura: </br><input name="data" value="<fmt:formatDate value="${empresa.dataAbertura }" pattern="dd/MM/yyyy" />" /></br>

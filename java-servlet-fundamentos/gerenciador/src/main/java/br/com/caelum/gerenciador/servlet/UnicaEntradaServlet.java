@@ -15,25 +15,23 @@ import br.com.caelum.gerenciador.acao.Acao;
 /**
  * Servlet implementation class ControlaEntrada
  */
-@WebServlet("/entrada")
+//@WebServlet("/entrada")
 public class UnicaEntradaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Entrada");
-		
 		String paramAcao = request.getParameter("acao");
+		
+//		HttpSession sessao = request.getSession();
+//		boolean usuarioNaoEstaLogado = sessao.getAttribute("usuarioLogado") == null;
+//		boolean ehUmaAcaoProtegida = !(paramAcao.equals("Login") || paramAcao.equals("LoginForm"));
+//		
+//		if (usuarioNaoEstaLogado && ehUmaAcaoProtegida) {
+//			response.sendRedirect("entrada?acao=LoginForm");
+//			return;
+//		}
+		
 		String enderecoClasse = "br.com.caelum.gerenciador.acao." + paramAcao;
-
-		
-		HttpSession sessao = request.getSession();
-		boolean usuarioNaoEstaLogado = sessao.getAttribute("usuarioLogado") == null;
-		boolean ehUmaAcaoProtegida = !(paramAcao.equals("Login") || paramAcao.equals("LoginForm"));
-		
-		if (usuarioNaoEstaLogado && ehUmaAcaoProtegida) {
-			response.sendRedirect("entrada?acao=LoginForm");
-			return;
-		}
 		
 		String nome = null;
 		try {
@@ -43,6 +41,8 @@ public class UnicaEntradaServlet extends HttpServlet {
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
 			throw new ServletException(e);
 		}
+		
+		System.out.println("Controller");
 		
 		String[] TipoEEndereco = nome.split(":");
 		

@@ -1,4 +1,4 @@
-### PARTE 1 - FUNDAMENTOS
+# PARTE 1 - FUNDAMENTOS
 
 
 ## Aula 1 - Fundamentos da Web e a API de Servlets [tempo: 1h46min]
@@ -128,7 +128,7 @@
     - Podemos alterar a porta de acesso a aplicação alterando o **`conf/server.xml`** dentro do novo servidor
     
 
-### PARTE 2 - AUTENTICAÇÃO E MVC
+# PARTE 2 - AUTENTICAÇÃO E MVC
 
 ## Aula 1 - Criando o controlador [tempo: 1h52min]
 

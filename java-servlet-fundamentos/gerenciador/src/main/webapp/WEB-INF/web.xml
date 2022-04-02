@@ -32,13 +32,4 @@
   	<url-pattern>/entrada</url-pattern>
   </filter-mapping>
 
-  <servlet>
-  	<servlet-name>OlaMundo</servlet-name>
-  	<servlet-class>br.com.caelum.gerenciador.servlet.OlaMundo.java</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>OlaMundo</servlet-name>
-  	<url-pattern>/ola</url-pattern>
-  </servlet-mapping>
 </web-app>

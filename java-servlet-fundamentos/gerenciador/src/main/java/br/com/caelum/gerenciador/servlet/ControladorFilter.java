@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -15,12 +16,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.caelum.gerenciador.acao.Acao;
 
-/**
- * Servlet Filter implementation class ControladorFilter
- */
 @WebFilter("/entrada")
-public class ControladorFilter extends HttpFilter implements Filter {
+public class ControladorFilter implements Filter {
+	@Override
+	public void init(FilterConfig filterConfig) throws ServletException {}
 
+	@Override
+	public void destroy() {}
+	
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {
 		
 		HttpServletRequest request = (HttpServletRequest) servletRequest;

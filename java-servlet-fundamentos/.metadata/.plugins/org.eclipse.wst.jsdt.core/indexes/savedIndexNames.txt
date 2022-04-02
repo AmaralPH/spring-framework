@@ -1,8 +1,0 @@
-INDEX VERSION 1.4+/home/pedroamaral/Documentos/Alura/spring-framework/java-servlet-fundamentos/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
-880985754.index
-4230804971.index
-3722097893.index
-1223573623.index
-2338279350.index
-852037321.index
-231152694.index
